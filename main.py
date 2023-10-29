@@ -137,8 +137,8 @@ LoggingIsOn = False
 weatherbit.start_wind_monitoring()
 weatherbit.start_weather_monitoring()
 
-serial.redirect(SerialPin.P15, SerialPin.P14, BaudRate.BAUD_RATE9600)
-#serial.redirect_to_usb()
+#serial.redirect(SerialPin.P15, SerialPin.P14, BaudRate.BAUD_RATE9600)
+serial.redirect_to_usb()
 
 """
 
@@ -186,5 +186,6 @@ def on_forever():
 td.start()
 dataLog.writeHeader()
 while True:
+    serial.write_line("self.szLine")
     on_forever()
 
